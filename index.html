@@ -3,29 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progress Thermometer</title>
+    <title>Funky Blood Donation Thermometer</title>
     <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Thermometer Styling */
         .thermometer-container {
             position: relative;
-            width: 50px;
-            height: 300px;
+            width: 60px;
+            height: 320px;
             background-color: #ddd;
-            border-radius: 25px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
         }
+
         .thermometer-fill {
             position: absolute;
             bottom: 0;
             width: 100%;
-            background-color: #e74c3c;
-            transition: height 0.5s;
+            background: linear-gradient(180deg, #ff5f6d, #ffc371); /* Gradient Fill */
+            border-radius: 30px 30px 0 0; /* Rounded Corners */
+            box-shadow: 0 0 10px rgba(255, 99, 71, 0.8); /* Subtle Glow */
+            transition: height 1s ease; /* Smooth Animation */
         }
+
         .thermometer-label {
             text-align: center;
+            font-size: 18px;
+            font-weight: 600;
             margin-top: 20px;
-            font-size: 20px;
+            color: #333;
         }
     </style>
 </head>
@@ -33,18 +54,23 @@
     <div class="thermometer-container" id="thermometer">
         <div class="thermometer-fill" id="thermometerFill" style="height: 0%;"></div>
     </div>
-    <div class="thermometer-label" id="thermometerLabel">0 units donated</div>
+    <div class="thermometer-label" id="thermometerLabel">0 people helped so far</div>
 
     <script>
         // Example data - Replace this with your dynamic data fetching logic
-        var targetGoal = 100; // Total target
-        var currentDonations = 30; // Current donations
+        var targetGoal = 90; // Total target
+        var currentDonations = 9; // Current donations
 
         function updateThermometer() {
             var percentage = (currentDonations / targetGoal) * 100;
             percentage = Math.min(percentage, 100); // Cap at 100%
+
+            // Update thermometer height
             document.getElementById("thermometerFill").style.height = percentage + "%";
-            document.getElementById("thermometerLabel").innerText = currentDonations + " out of " + targetGoal + " units donated";
+
+            // Update the label text
+            document.getElementById("thermometerLabel").innerText = 
+                `Loucas Blood has helped ${currentDonations} of our target ${targetGoal} people this year.`;
         }
 
         // Call the update function
