@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funky Blood Donation Thermometer</title>
+    <title>Jar-like Blood Donation Tracker</title>
     <style>
         /* Import Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
@@ -13,22 +13,23 @@
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f4;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
 
-        /* Thermometer Styling */
+        /* Jar-like Thermometer Styling */
         .thermometer-container {
             position: relative;
-            width: 60px;
-            height: 320px;
+            width: 150px; /* Wider */
+            height: 200px; /* Shorter */
             background-color: #ddd;
-            border-radius: 30px;
+            border-radius: 75px 75px 30px 30px; /* Jar-like Shape */
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
+            margin-bottom: 20px; /* Space between graphic and text */
         }
 
         .thermometer-fill {
@@ -36,7 +37,7 @@
             bottom: 0;
             width: 100%;
             background: linear-gradient(180deg, #ff5f6d, #ffc371); /* Gradient Fill */
-            border-radius: 30px 30px 0 0; /* Rounded Corners */
+            border-radius: 75px 75px 0 0; /* Rounded Corners */
             box-shadow: 0 0 10px rgba(255, 99, 71, 0.8); /* Subtle Glow */
             transition: height 1s ease; /* Smooth Animation */
         }
@@ -45,7 +46,6 @@
             text-align: center;
             font-size: 18px;
             font-weight: 600;
-            margin-top: 20px;
             color: #333;
         }
     </style>
@@ -58,8 +58,8 @@
 
     <script>
         // Example data - Replace this with your dynamic data fetching logic
-        var targetGoal = 90; // Total target
-        var currentDonations = 9; // Current donations
+        var targetGoal = 100; // Total target
+        var currentDonations = 30; // Current donations
 
         function updateThermometer() {
             var percentage = (currentDonations / targetGoal) * 100;
