@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Thermometer</title>
+    <style>
+        .thermometer-container {
+            position: relative;
+            width: 50px;
+            height: 300px;
+            background-color: #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            margin: 0 auto;
+        }
+        .thermometer-fill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #e74c3c;
+            transition: height 0.5s;
+        }
+        .thermometer-label {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="thermometer-container" id="thermometer">
+        <div class="thermometer-fill" id="thermometerFill" style="height: 0%;"></div>
+    </div>
+    <div class="thermometer-label" id="thermometerLabel">0 units donated</div>
+
+    <script>
+        // Example data - Replace this with your dynamic data fetching logic
+        var targetGoal = 100; // Total target
+        var currentDonations = 30; // Current donations
+
+        function updateThermometer() {
+            var percentage = (currentDonations / targetGoal) * 100;
+            percentage = Math.min(percentage, 100); // Cap at 100%
+            document.getElementById("thermometerFill").style.height = percentage + "%";
+            document.getElementById("thermometerLabel").innerText = currentDonations + " out of " + targetGoal + " units donated";
+        }
+
+        // Call the update function
+        updateThermometer();
+    </script>
+</body>
+</html>
