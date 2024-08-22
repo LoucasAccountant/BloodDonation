@@ -26,7 +26,7 @@
             width: 150px; /* Wider */
             height: 200px; /* Shorter */
             background-color: #ddd;
-            border-radius: 75px 75px 30px 30px; /* Jar-like Shape */
+            border-radius: 15px 15px 30px 30px; /* Flatter Top, Jar-like Shape */
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px; /* Space between graphic and text */
@@ -37,7 +37,7 @@
             bottom: 0;
             width: 100%;
             background: linear-gradient(180deg, #ff5f6d, #ffc371); /* Gradient Fill */
-            border-radius: 75px 75px 0 0; /* Rounded Corners */
+            border-radius: 15px 15px 0 0; /* Rounded Corners at Top */
             box-shadow: 0 0 10px rgba(255, 99, 71, 0.8); /* Subtle Glow */
             transition: height 1s ease; /* Smooth Animation */
         }
@@ -57,12 +57,12 @@
     <div class="thermometer-label" id="thermometerLabel">0 people helped so far</div>
 
     <script>
-        // Example data - Replace this with your dynamic data fetching logic
-        var targetGoal = 90; // Total target
-        var currentDonations = 9; // Current donations
+        // Set your actual data
+        var targetGoal = 90; // Total target for the year
+        var currentDonations = 9; // Donations made so far
 
         function updateThermometer() {
-            var percentage = (currentDonations / targetGoal) * 90;
+            var percentage = (currentDonations / targetGoal) * 100;
             percentage = Math.min(percentage, 100); // Cap at 100%
 
             // Update thermometer height
