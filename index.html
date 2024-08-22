@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jar-like Blood Donation Tracker</title>
+    <title>Blood Donation Tracker</title>
     <style>
         /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap');
@@ -20,15 +20,19 @@
             margin: 0;
         }
 
-        /* Target Text Styling */
+        /* Target Text Styling with Black Border */
         .target-text {
             font-family: 'Lobster', cursive;
             font-size: 28px;
             font-weight: bold;
-            color: #e74c3c;
+            color: #FAFB00; /* Secondary brand color */
             margin-bottom: 20px;
             text-transform: uppercase;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000; /* Black border effect using text shadows */
         }
 
         /* Jar-like Thermometer Styling */
@@ -62,12 +66,11 @@
     </style>
 </head>
 <body>
-    <div class="target-text">Target 90</div> <!-- New Target Text -->
+    <div class="target-text">Target 90</div> <!-- Target text with yellow color and black border -->
 
     <div class="thermometer-container" id="thermometer">
         <div class="thermometer-fill" id="thermometerFill" style="height: 0%;"></div>
     </div>
-    
     <div class="thermometer-label" id="thermometerLabel">Loucas Blood has helped 0 people this year.</div>
 
     <script>
