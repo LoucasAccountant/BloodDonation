@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jar-like Blood Donation Tracker</title>
     <style>
-        /* Import Google Font */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap');
 
         /* General Styling */
         body {
@@ -20,6 +20,17 @@
             margin: 0;
         }
 
+        /* Target Text Styling */
+        .target-text {
+            font-family: 'Lobster', cursive;
+            font-size: 28px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
         /* Jar-like Thermometer Styling */
         .thermometer-container {
             position: relative;
@@ -29,7 +40,7 @@
             border-radius: 15px 15px 30px 30px; /* Flatter Top, Jar-like Shape */
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px; /* Space between graphic and text */
+            margin-bottom: 20px; /* Space between jar and bottom text */
         }
 
         .thermometer-fill {
@@ -51,10 +62,13 @@
     </style>
 </head>
 <body>
+    <div class="target-text">Target 90</div> <!-- New Target Text -->
+
     <div class="thermometer-container" id="thermometer">
         <div class="thermometer-fill" id="thermometerFill" style="height: 0%;"></div>
     </div>
-    <div class="thermometer-label" id="thermometerLabel">0 people helped so far</div>
+    
+    <div class="thermometer-label" id="thermometerLabel">Loucas Blood has helped 0 people this year.</div>
 
     <script>
         // Set your actual data
@@ -70,7 +84,7 @@
 
             // Update the label text
             document.getElementById("thermometerLabel").innerText = 
-                `Loucas Blood has helped ${currentDonations} of our target ${targetGoal} people this year.`;
+                `Loucas Blood has helped ${currentDonations} people this year.`;
         }
 
         // Call the update function
